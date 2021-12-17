@@ -8,8 +8,7 @@ services:
     ports:
       - '6379:6379'
   db:
-    image: postgres:9.6
-    platform: linux/arm64
+    image: postgres:9.6.24
     restart: 'always'
     command: postgres -c 'max_connections=200'
     environment:

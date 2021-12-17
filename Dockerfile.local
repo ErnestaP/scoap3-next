@@ -1,3 +1,33 @@
+# FROM ubuntu:18.04
+
+# RUN apt-get update && apt-get upgrade -y 
+
+
+# RUN    apt-get install -y nodejs \
+#     npm \
+#     python-pip \
+#     liblzma-dev \
+#     openssl \
+#     libjpeg-dev \
+#     libpq-dev \
+#     libffi-dev \
+#     libxml2-dev \ 
+#     libxslt1-dev 
+
+    
+
+# RUN npm install -g \
+#         node-sass@3.8.0 \
+#         clean-css@^3.4.24 \
+#         requirejs \
+#         uglify-js
+
+
+# WORKDIR /code
+
+# RUN pip install --no-cache-dir --upgrade pip==20.3.4 && \
+#     pip install --no-cache-dir --upgrade setuptools && \
+#     pip install --no-cache-dir --upgrade wheel
 FROM centos:7
 
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
@@ -28,14 +58,22 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.n
         python2-xrootd \
         wget \
         Xvfb \
+        libtiff-devel \
+        libjpeg-devel \
+        libzip-devel \
+        freetype-devel \
+        lcms2-devel \
+        libwebp-devel \
+        tcl-devel \
+        tk-devel \
         && \
     yum clean all
+    
 RUN npm install -g \
         node-sass@3.8.0 \
         clean-css@^3.4.24 \
         requirejs \
-        uglify-js
-
+        uglify-js 
 
 WORKDIR /code
 
@@ -56,3 +94,4 @@ RUN scoap3 npm && \
     scoap3 assets build
 
 WORKDIR /code
+
